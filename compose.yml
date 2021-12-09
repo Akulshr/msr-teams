@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  webhook:
+    image: 52.176.95.66/msrwebhook/webhookrelay:latest
+    ports:
+      - 80
+    volumes:
+      - "webhookdb:/database"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+volumes:
+  webhookdb:

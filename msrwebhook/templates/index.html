@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MSR Webhook and Microsoft Teams Integration Plugin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 500px;
+        padding-top: 50px;
+      }
+      h2 {
+        text-align: center;
+      }
+      footer {
+        font-size: 15pt;
+        text-align: center;
+      }
+      p.padding {
+        padding-bottom: 1cm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>MSR and Teams Plugin</h2>
+      <p class="padding"></p>
+      {% if teams_url == 'Microsoft Teams Incoming Webhook URL'%}
+          Please enter your Microsoft Teams Incoming Webhook URL below:
+          <p></p>
+      {% else %}
+          Your current Teams Incoming Webhook URL is: {{ teams_url }}</br>
+          <p></p>
+          You can update your teams incoming webhook URL below:
+          <p></p>
+      {% endif %}
+      <form method="POST" action=".">
+         <input id="post_form_id" size=50 name="teams_url" value="{{ teams_url }}" />
+         <input type="submit">
+      </form>
+      <div style="position: absolute; bottom: 5px; max-width: 500px">
+        <footer >
+          <p> This service is not created by, affiliated with, or supported by Microsoft Corporation.</p>
+        </footer>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
